@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bank
+﻿namespace Bank
 {
     internal class BankAccount
     {
@@ -18,7 +12,19 @@ namespace Bank
         public void HaalGeldAf(string bedragString)
         {
             int bedrag = int.Parse(bedragString);
+            if (Budget < bedrag)
+            {
+                throw new BudgetTeLaagException();
+            }
             Budget -= bedrag;
+        }
+    }
+
+    class BudgetTeLaagException : Exception
+    {
+        public BudgetTeLaagException() : base("Budget is te laag")
+        {
+
         }
     }
 }

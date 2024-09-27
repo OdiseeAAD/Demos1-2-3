@@ -13,7 +13,21 @@
 
                 string bedrag = Console.ReadLine();
 
-                bankAccount.HaalGeldAf(bedrag);
+                try
+                {
+                    bankAccount.HaalGeldAf(bedrag);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Dit is geen geldig formaat");
+                }
+                catch(BudgetTeLaagException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                } finally
+                {
+                    Console.WriteLine($"Je huidige budget is {bankAccount.Budget}");
+                }
             }
         }
     }
