@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    internal class Adres : IAdres, IComparable
+    internal class Adres : IAdres, IComparable, IComparable<IAdres>
     {
         public Adres(string straat, string huisnummer, int postcode, string gemeente, string land)
         {
@@ -32,13 +32,20 @@ namespace Interfaces
 
             IAdres other = obj as IAdres;
 
-            if (Land.CompareTo(other.Land) == 0) {
+            return CompareTo(other);
+        }
+
+        public int CompareTo(IAdres? other)
+        {
+            if (Land.CompareTo(other.Land) == 0)
+            {
                 if (Gemeente.CompareTo(other.Gemeente) == 0)
                 {
-                    if(Straat.CompareTo(other.Straat) == 0)
+                    if (Straat.CompareTo(other.Straat) == 0)
                     {
                         return Huisnummer.CompareTo(other.Huisnummer);
-                    } else
+                    }
+                    else
                     {
                         return Straat.CompareTo(other.Straat);
                     }

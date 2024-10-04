@@ -1,0 +1,4 @@
+- Een interface het wegschrijven van data
+- Een interface voor het lezen van data
+- Een interface voor een notificatie die kan verschijnen. Elke notificatie bestaat uit een logo, titel en beschrijving. Je kan ook op een notificatie klikken. Noem deze interface INotifiable.
+- Interface die ervoor zorgt we checkboxen/radiobuttons kunnen printen op het scherm. We verwachten hier een Select en Deselect functie. We willen ook weten of een item geselecteerd is of niet. ISelectable
