@@ -22,9 +22,37 @@ namespace TextEncrypter
     /// </summary>
     public partial class MainWindow : Window
     {
+        IEncryptor encryptor = new ReverseEncryptor();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(sender== reverseRadioButton)
+            {
+                encryptor = new ReverseEncryptor();
+            }
+            else if(sender== shiftOneRadioButton)
+            {
+                encryptor = new ShiftOneEncryptor();
+            }
+             else if(sender == reverseAlphabetRadioButton)
+            {
+                encryptor = new ReverseAlphabetEncryptor();
+            }
+        }
+
+        private void Encrypted_Click(object sender, RoutedEventArgs e)
+        {
+            encryptTextBox.Text = encryptor.Encrypt(decryptTextBox.Text);
+        }
+
+        private void Decrypted_Click(object sender, RoutedEventArgs e)
+        {
+            decryptTextBox.Text = encryptor.Decrypt(encryptTextBox.Text);
         }
     }
 }

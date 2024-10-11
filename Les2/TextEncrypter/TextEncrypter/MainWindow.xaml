@@ -26,24 +26,24 @@
         <StackPanel>
             <GroupBox Header="Techniek">
                 <StackPanel>
-                    <RadioButton IsChecked="True">Achterstevoren</RadioButton>
-                    <RadioButton >A=B, B=C, C=D, ..., Z=A</RadioButton>
-                    <RadioButton >A=Z, B=Y, C=X, ...</RadioButton>
+                    <RadioButton x:Name="reverseRadioButton" IsChecked="True" Click="RadioButton_Click">Achterstevoren</RadioButton>
+                    <RadioButton x:Name="shiftOneRadioButton" Click="RadioButton_Click" >A=B, B=C, C=D, ..., Z=A</RadioButton>
+                    <RadioButton x:Name="reverseAlphabetRadioButton" Click="RadioButton_Click" >A=Z, B=Y, C=X, ...</RadioButton>
                 </StackPanel>
             </GroupBox>
 
             <Label>Decrypted text</Label>
-            <TextBox x:Name="DecryptTextBox" />
+            <TextBox x:Name="decryptTextBox" />
             <Label>Encrypted text</Label>
-            <TextBox x:Name="EncryptTextBox"/>
+            <TextBox x:Name="encryptTextBox"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Click="Button_Click" >Encrypt</Button>
-                <Button Grid.Column="1" Click="Button_Click_1" >Decrypt</Button>
+                <Button Grid.Column="0" Click="Encrypted_Click" >Encrypt</Button>
+                <Button Grid.Column="1" Click="Decrypted_Click" >Decrypt</Button>
             </Grid>
         </StackPanel>
 

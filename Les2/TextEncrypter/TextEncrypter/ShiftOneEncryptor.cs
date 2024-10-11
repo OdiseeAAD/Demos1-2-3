@@ -6,7 +6,56 @@ using System.Threading.Tasks;
 
 namespace TextEncrypter
 {
-    internal class ShiftOneEncryptor
+    internal class ShiftOneEncryptor : IEncryptor
     {
+        public string Decrypt(string toDecrypt)
+        {
+            string result = "";
+
+            foreach (char c in toDecrypt)
+            {
+                if (!char.IsLetter(c))
+                {
+                    result += c;
+                }
+                else if (c == 'a')
+                {
+                    result += 'z';
+                }
+                else if (c == 'A')
+                {
+                    result += 'Z';
+                } else {
+                    result += (char)(c - 1);
+                }
+            }
+            return result;
+        }
+
+        public string Encrypt(string toEncrypt)
+        {
+            string result = "";
+
+            foreach (char c in toEncrypt)
+            {
+                if (!char.IsLetter(c))
+                {
+                    result += c;
+                }
+                else if (c == 'z')
+                {
+                    result += 'a';
+                }
+                else if (c == 'Z')
+                {
+                    result += 'A';
+                }
+                else
+                {
+                    result += (char)(c + 1);
+                }
+            }
+            return result;
+        }
     }
 }
