@@ -1,4 +1,5 @@
-﻿namespace LINQ
+﻿
+namespace LINQ
 {
     internal class Program
     {
@@ -18,9 +19,18 @@
 
             };
 
-            double average2 = students.Average(GetScore);
+            double average2 = students.Average(student =>  student.Score);
+
+            List<string> namen = students.Select(student => student.Naam).ToList();
 
             Console.WriteLine(average2);
+
+
+        }
+
+        private static string GetNaam(Student student)
+        {
+            return student.Naam;
         }
 
         static int GetScore(Student s)
