@@ -15,7 +15,7 @@
             <Label Content="EmailNumber:"/>
             <TextBox x:Name="EmailTextBox"/>
 
-            <Button>Save</Button>
+            <Button Click="Button_Click">Save</Button>
             <Button>Cancel</Button>
 
         </StackPanel>

@@ -23,6 +23,12 @@ namespace UserEventDemo
             // ListViewObject.PersonClicked += ListViewObject_PersonClicked;
 
             ListViewObject.PropertyChanged += ListViewObject_PropertyChanged;
+            DetailViewObject.AddView.AddPerson += AddView_AddPerson;
+        }
+
+        private void AddView_AddPerson(object? sender, Person person)
+        {
+            ListViewObject.AddPerson(person);
         }
 
         private void ListViewObject_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

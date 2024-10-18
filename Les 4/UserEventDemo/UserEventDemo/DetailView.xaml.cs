@@ -25,8 +25,14 @@ namespace UserEventDemo
             InitializeComponent();
 
             AddButton.Click += AddButton_Click;
-
+            AddView.AddPerson += AddView_AddPerson;
            
+        }
+
+        private void AddView_AddPerson(object? sender, Person e)
+        {
+            ShowViewObject.Visibility = Visibility.Visible;
+            AddView.Visibility = Visibility.Hidden;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

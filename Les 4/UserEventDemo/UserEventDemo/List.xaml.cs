@@ -51,6 +51,13 @@ namespace UserEventDemo
             PeopleListView.ItemsSource = people;
         }
 
+        public void AddPerson(Person p)
+        {
+            people.Add(p);
+            PeopleListView.ItemsSource = null;// Remove list from listview
+            PeopleListView.ItemsSource = people;
+        }
+
 
         private void PeopleListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
