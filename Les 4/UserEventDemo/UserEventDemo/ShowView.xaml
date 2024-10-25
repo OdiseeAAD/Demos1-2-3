@@ -11,13 +11,13 @@
             <Label Content="Contact Details" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
 
             <Label Content="Name:" FontWeight="Bold"/>
-            <Label Name="NameLabel" Margin="0,0,0,10"/>
+            <Label Name="NameLabel" Margin="0,0,0,10" Content="{Binding Name}"/>
 
             <Label Content="Phone Number:" FontWeight="Bold"/>
-            <Label Name="PhoneNumberLabel" Margin="0,0,0,10"/>
+            <Label Name="PhoneNumberLabel" Margin="0,0,0,10" Content="{Binding PhoneNumber}"/>
 
             <Label Content="Email:" FontWeight="Bold"/>
-            <Label Name="EmailLabel" Margin="0,0,0,10"/>
+            <Label Name="EmailLabel" Margin="0,0,0,10" Content="{Binding Email}"/>
 
         </StackPanel>
     </Grid>

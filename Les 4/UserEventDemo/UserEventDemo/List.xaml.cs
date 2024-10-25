@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -37,7 +38,16 @@ namespace UserEventDemo
             }
         }
 
-        private List<Person> people = new List<Person>()
+        public ObservableCollection<Person> People
+        {
+            get => people;
+            set
+            {
+                people = value;
+            }
+        }
+
+        private ObservableCollection<Person> people = new ObservableCollection<Person>()
             {
                 new Person() { Name = "John Doe", PhoneNumber = "1234567890", Email = "john.doe@example.com" },
                 new Person() { Name = "Jane Smith", PhoneNumber = "9876543210", Email = "jane.smith@example.com" },
@@ -48,14 +58,13 @@ namespace UserEventDemo
         public List()
         {
             InitializeComponent();
-            PeopleListView.ItemsSource = people;
+            DataContext = this;
         }
 
         public void AddPerson(Person p)
         {
-            people.Add(p);
-            PeopleListView.ItemsSource = null;// Remove list from listview
-            PeopleListView.ItemsSource = people;
+            People.Add(p);
+            
         }
 
 

@@ -27,16 +27,12 @@ namespace UserEventDemo
 
         public void SetDetail(object sender, Person p)
         {
-            NameLabel.Content = p.Name;
-            PhoneNumberLabel.Content = p.PhoneNumber;
-            EmailLabel.Content = p.Email;
+            DataContext = p;
         }
 
         internal void SetDetail(Person p)
         {
-            NameLabel.Content = p.Name;
-            PhoneNumberLabel.Content = p.PhoneNumber;
-            EmailLabel.Content = p.Email;
+            DataContext = p;
         }
     }
 }
