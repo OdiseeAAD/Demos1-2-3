@@ -1,0 +1,23 @@
+﻿<Window x:Class="DemoMVVM.Todo.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoMVVM.Todo.Views" 
+        xmlns:viewmodel="clr-namespace:DemoMVVM.Todo.ViewModel"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        Title="{Binding Title}">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <local:TodoListView DataContext="{Binding TodoListViewModel}" Grid.Column="0"/>
+        <local:TodoDetailView DataContext="{Binding TodoDetailViewModel}" Grid.Column="1"/>
+    </Grid>
+</Window>

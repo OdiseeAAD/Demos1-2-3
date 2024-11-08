@@ -1,0 +1,10 @@
+﻿<Application x:Class="DemoMVVM.ButtonExample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DemoMVVM.ButtonExample"
+             xmlns:viewmodels="clr-namespace:DemoMVVM.ButtonExample.ViewModels" xmlns:views="clr-namespace:DemoMVVM.ButtonExample.Views"
+             StartupUri="Views/MainView.xaml">
+    <Application.Resources>
+
+    </Application.Resources>
+</Application>

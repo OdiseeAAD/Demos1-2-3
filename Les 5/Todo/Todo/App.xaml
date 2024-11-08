@@ -1,0 +1,24 @@
+﻿<Application x:Class="TodoApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TodoApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="base" TargetType="Control">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+
+            <Style TargetType="ListView" BasedOn="{StaticResource base }" />
+            <Style TargetType="ContentControl" BasedOn="{StaticResource base}"/>
+            <Style TargetType="TextBox" BasedOn="{StaticResource base}"/>
+            <Style TargetType="Label" BasedOn="{StaticResource base}"/>
+            <Style TargetType="Button" BasedOn="{StaticResource base}" />
+            <Style TargetType="DatePicker" BasedOn="{StaticResource base}"/>
+
+      
+        </ResourceDictionary>
+
+        
+    </Application.Resources>
+</Application>
