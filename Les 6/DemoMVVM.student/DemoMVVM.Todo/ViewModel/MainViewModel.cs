@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DemoMVVM.Todo.ViewModel
+﻿namespace DemoMVVM.Todo.ViewModel
 {
     internal class MainViewModel
     {
@@ -17,6 +11,23 @@ namespace DemoMVVM.Todo.ViewModel
         {
             TodoListViewModel.PropertyChanged += TodoListViewModel_PropertyChanged;
             TodoListViewModel.IsEnabled = true;
+
+            TodoDetailViewModel.PropertyChanged += TodoDetailViewModel_PropertyChanged;
+        }
+
+        private void TodoDetailViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case "Status":
+                    if (TodoDetailViewModel.Status == Enumerations.TodoDetailStatus.ItemCreated)
+                    {
+                        TodoDetailViewModel.IsEnabled = false;
+                        TodoListViewModel.IsEnabled = true;
+                        TodoListViewModel.Status = null;
+                    }
+                    break;
+            }
         }
 
         private void TodoListViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -24,10 +35,19 @@ namespace DemoMVVM.Todo.ViewModel
             switch (e.PropertyName)
             {
                 case "Status":
-                    TodoDetailViewModel.IsEnabled = true;
-                    TodoListViewModel.IsEnabled = false;
+                    if (TodoListViewModel.Status == Enumerations.TodoListStatus.Create)
+                    {
+                        TodoDetailViewModel.IsEnabled = true;
+                        TodoListViewModel.IsEnabled = false;
+                        TodoDetailViewModel.Status = Enumerations.TodoDetailStatus.Create;
+                    }
                     break;
-            }
+                case "SelectedTodo":
+                    TodoDetailViewModel.Title = TodoListViewModel.SelectedTodo?.Title;
+                    TodoDetailViewModel.DueDate = TodoListViewModel.SelectedTodo?.DueDate;
+                    TodoDetailViewModel.IsChecked = TodoListViewModel.SelectedTodo?.Checked ??  false;
+                    break;
+;            }
         }
     }
 }

@@ -26,6 +26,14 @@ namespace DemoMVVM.Todo.Models
             Checked = selectedTodo.Checked;
         }
 
+        public Todo(string? title, DateTime? dueDate, bool isChecked)
+        {
+            Id = Guid.NewGuid();
+            Title = title;
+            DueDate = dueDate;
+            Checked = isChecked;
+        }
+
         public string? Title { get => title; set => SetProperty(ref title, value); }
         public DateTime? DueDate { get => dueDate; set => SetProperty(ref dueDate, value); }
         public bool Checked { get => _checked; set => SetProperty(ref _checked, value); }

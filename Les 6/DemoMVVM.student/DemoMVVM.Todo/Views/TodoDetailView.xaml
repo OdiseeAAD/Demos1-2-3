@@ -23,14 +23,15 @@
         </Grid.RowDefinitions>
 
         <Label>Title</Label>
-        <TextBox Grid.Column="1" Margin="5" />
+        <TextBox Grid.Column="1" Margin="5" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Row="1">Due date</Label>
-        <DatePicker Grid.Column="1" Grid.Row="1" Margin="5" />
+        <DatePicker Grid.Column="1" Grid.Row="1" Margin="5"  SelectedDate="{Binding DueDate}"/>
         <Label Grid.Row="2">Done</Label>
-        <CheckBox Grid.Row="2" Grid.Column="1" Margin="5" />
+        <CheckBox Grid.Row="2" Grid.Column="1" Margin="5" IsChecked="{Binding IsChecked}"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3" Grid.ColumnSpan="2">
-            <Button Margin="5" >Save</Button>
-            <Button Margin="5" >Cancel</Button>
+            <Button Margin="5" Command="{Binding SaveCommand}">Save</Button>
+            <Button Margin="5" Command="{Binding CancelCommand}" >Cancel</Button>
         </StackPanel>
+        <local:demo Grid.Row="3"/>
     </Grid>
 </UserControl>

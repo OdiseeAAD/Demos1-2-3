@@ -5,6 +5,15 @@
              xmlns:viewmodels="clr-namespace:DemoMVVM.ButtonExample.ViewModels" xmlns:views="clr-namespace:DemoMVVM.ButtonExample.Views"
              StartupUri="Views/MainView.xaml">
     <Application.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:FirstViewModel}">
+            <views:FirstView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:SecondViewModel}">
+            <views:SecondView/>
+        </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodels:ThirdViewModel}">
+            <views:ThirdView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

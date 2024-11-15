@@ -16,14 +16,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ListView Margin="5" ItemsSource="{Binding Todos}">
+        <ListView Margin="5" ItemsSource="{Binding Todos}" SelectedItem="{Binding SelectedTodo}">
             <ListView.ItemTemplate>
                 <DataTemplate >
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox />
+                        <CheckBox IsChecked="{Binding Checked}" />
                         <StackPanel Orientation="Vertical">
-                            <Label />
-                            <Label />
+                            <Label Content="{Binding Title}"/>
+                            <Label Content="{Binding DueDate}"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
@@ -31,8 +31,8 @@
         </ListView>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Button Margin="5" Command="{Binding CreateCommand}" >Create</Button>
-            <Button Margin="5" >Edit</Button>
-            <Button Margin="5" >Delete</Button>
+            <Button Margin="5" Command="{Binding EditCommand}" >Edit</Button>
+            <Button Margin="5" Command="{Binding DeleteCommand}" >Delete</Button>
         </StackPanel>
     </Grid>
 </UserControl>
